@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.banner {
+    min-height: 100vh;
+    background: black url(/images/bg.jpg);
+    background-position: center;
+    background-size: cover;
+    padding: 40px 100px;
+    display: flex;
+    align-items: center;
+}
+
+header {
+    position: absolute;
+    top: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.toggle {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    margin-right: 20px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toggle::before {
+    content: '';
+    position: absolute;
+    width: 28px;
+    height: 3px;
+    background: #120e0f;
+    transform: translateY(-6px);
+    transition: 0.5s;
+}
+
+.toggle.active::before {
+    transform: translateY(0) rotate(45deg);
+}
+
+.toggle::after {
+    content: '';
+    position: absolute;
+    width: 28px;
+    height: 3px;
+    background: #120e0f;
+    transform: translateY(6px);
+    transition: 0.5s;
+}
+
+.toggle.active::after {
+    transform: translateY(0) rotate(-45deg);
+}
+
+.navigation {
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #120e0f url(/images/menuBg.jpg);
+    background-position: right;
+    background-size: cover;
+    display: none;
+    padding-right: 100px;
+}
+
+.navigation.active {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.navigation li {
+    list-style: none;
+    margin: 4px 0;
+}
+
+.navigation li a {
+    color: #fff;
+    font-size: 2em;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.navigation li a:hover {
+    color: rgb(250, 0, 117);
+}
+
+.content {
+    position: relative;
+    max-width: 700px;
+}
+
+.content .textimg {
+    max-width: 600px;
+    width: 100%;
+}
+
+.content p {
+    color: #fff;
+    font-size: 1.2em;
+    line-height: 1.7em;
+    font-weight: 300;
+}
+
+.btn {
+    position: relative;
+    background: rgb(250, 0, 117);
+    color: #fff;
+    padding: 10px 18px;
+    display: inline-flex;
+    margin-top: 20px;
+    font-size: 1.1em;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.clip {
+    position: absolute;
+    right: 100px;
+    bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.clip .clipbox {
+    position: relative;
+    width: 227px;
+    height: 128px;
+    border: 8px solid #fff;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: rgb(250, 0, 117);
+}
+
+.clip .clipbox img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s ease-in-out;
+}
+
+.clip .clipbox ion-icon {
+    font-size: 2em;
+    color: #fff;
+}
+
+.clip .clipbox:hover img {
+    opacity: 0.4;
+}
+
+.socialicon {
+    position: absolute;
+    bottom: 40px;
+    left: 100px;
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.socialicon li {
+    list-style: none;
+}
+
+.socialicon li a {
+    font-size: 2em;
+    color: #fff;
+    transition: 0.3s ease-in-out;
+}
+
+.socialicon li a:hover {
+    color: rgb(250, 0, 117);
+}
+
+
+/* now make it responsive */
+
+@media(max-width:1100px) {
+    .banner {
+        padding: 40px;
+        flex-direction: column;
+        align-items: flex;
+    }
+    .clip {
+        position: absolute;
+        right: initial;
+        top: initial;
+        margin: 40px 0;
+    }
+    .content {
+        margin-top: 150pxpx;
+    }
+    .socialicon {
+        position: relative;
+        bottom: initial;
+        left: initial;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+}
+
+@media(max-width:493px) {
+    .clip {
+        position: relative;
+        top: 15px;
+        left: initial;
+    }
+    header {
+        position: absolute;
+        top: 10px;
+        left: 150px;
+    }
+}
