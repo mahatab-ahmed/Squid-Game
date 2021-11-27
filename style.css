@@ -237,3 +237,10 @@ header {
         left: 150px;
     }
 }
+@media(max-width:493px) {
+    header {
+        position: absolute;
+        top: 5px;
+        left: 55px;
+    }
+}
